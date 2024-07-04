@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const TaskAddInput = (props) => {
   const { inputText, setInputText, taskList, setTaskList } = props;
@@ -8,7 +9,7 @@ const TaskAddInput = (props) => {
     setTaskList([
       ...taskList,
       {
-        id: taskList.length,
+        id: uuidv4(),
         text: inputText,
       },
     ]);
