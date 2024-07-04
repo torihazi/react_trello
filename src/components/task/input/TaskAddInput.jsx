@@ -1,7 +1,7 @@
 import React from "react";
 
 const TaskAddInput = () => {
-  return <div>TaskAddInput</div>;
+  return <div></div>;
 };
 
 export default TaskAddInput;

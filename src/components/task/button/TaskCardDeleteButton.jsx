@@ -1,7 +1,7 @@
 import React from "react";
 
 const TaskCardDeleteButton = () => {
-  return <div>TaskCardDeleteButton</div>;
+  return <div></div>;
 };
 
 export default TaskCardDeleteButton;
