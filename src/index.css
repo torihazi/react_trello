@@ -25,3 +25,11 @@ header {
   background-size: cover;
   height: 100vh;
 }
+
+.taskCard {
+  width: 250px;
+  padding: 10px 25px;
+  margin: 10px 1%;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
