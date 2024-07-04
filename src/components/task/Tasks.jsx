@@ -1,7 +1,14 @@
 import React from "react";
 
-const Tasks = () => {
-  return <div></div>;
+const Tasks = (props) => {
+  const { inputText, taskList } = props;
+  return (
+    <div>
+      {taskList.map((task) => (
+        <div>{task.text}</div>
+      ))}
+    </div>
+  );
 };
 
 export default Tasks;

@@ -4,6 +4,13 @@ const TaskAddInput = (props) => {
   const { inputText, setInputText, taskList, setTaskList } = props;
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTaskList([
+      ...taskList,
+      {
+        text: inputText,
+      },
+    ]);
+    setInputText("");
   };
 
   const handleChange = (e) => {
@@ -17,6 +24,7 @@ const TaskAddInput = (props) => {
           placeholder="add a task"
           className="taskAddInput"
           onChange={handleChange}
+          value={inputText}
         />
       </form>
     </div>
