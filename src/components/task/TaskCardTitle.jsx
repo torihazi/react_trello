@@ -4,9 +4,9 @@ const TaskCardTitle = () => {
   const [isClick, setIsClick] = useState(false);
   const [inputCardTitle, setInputCardTitle] = useState("today");
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    console.log("click");
     setIsClick(true);
-    console.log(!isClick);
   };
 
   const handleChange = (e) => {

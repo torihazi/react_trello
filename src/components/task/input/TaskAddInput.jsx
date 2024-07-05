@@ -27,6 +27,7 @@ const TaskAddInput = (props) => {
           placeholder="add a task"
           className="taskAddInput"
           onChange={handleChange}
+          maxLength="15"
           value={inputText}
         />
       </form>

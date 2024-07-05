@@ -3,7 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
 const Task = (props) => {
-  const { id, task, taskList, setTaskList } = props;
+  const { task, taskList, setTaskList } = props;
 
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: task.id });
