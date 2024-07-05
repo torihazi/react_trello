@@ -29,6 +29,7 @@ header {
 
 .taskCard {
   width: 250px;
+  height: auto;
   padding: 10px 25px;
   margin: 10px 1%;
   background-color: #f0f0f0;

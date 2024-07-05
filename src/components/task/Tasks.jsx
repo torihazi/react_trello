@@ -12,7 +12,7 @@ const Tasks = (props) => {
 
   const getTaskPos = (id) => taskList.findIndex((task) => task.id === id);
 
-  const handleDragEnd = (e) => {
+  const handleTasksDragEnd = (e) => {
     const { active, over } = e;
 
     if (active.id === over.id) return;
@@ -26,7 +26,10 @@ const Tasks = (props) => {
   };
   return (
     <div>
-      <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+      <DndContext
+        onDragEnd={handleTasksDragEnd}
+        collisionDetection={closestCorners}
+      >
         <SortableContext
           items={taskList}
           strategy={verticalListSortingStrategy}

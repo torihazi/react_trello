@@ -9,7 +9,7 @@ import { CSS } from "@dnd-kit/utilities";
 const TaskCard = (props) => {
   const [inputText, setInputText] = useState("");
   const [taskList, setTaskList] = useState([]);
-  const { id } = props;
+  const { id, taskCardsList, setTaskCardsList } = props;
 
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: id });
@@ -20,24 +20,27 @@ const TaskCard = (props) => {
   };
 
   return (
-    <div
-      className="taskCard"
-      // ref={setNodeRef}
-      // {...attributes}
-      // {...listeners}
-      // style={style}
-    >
-      <div className="taskCardTitleAndTaskCardDeleteButtonArea">
-        <TaskCardTitle />
-        <TaskCardDeleteButton taskList={taskList} setTaskList={setTaskList} />
+    <div className="taskCard" ref={setNodeRef} style={style}>
+      <div {...attributes} {...listeners} style={{ cursor: "move" }}>
+        <i className="fa-solid fa-bars"></i>
       </div>
-      <TaskAddInput
-        inputText={inputText}
-        setInputText={setInputText}
-        taskList={taskList}
-        setTaskList={setTaskList}
-      />
-      <Tasks taskList={taskList} setTaskList={setTaskList} />
+      <div onClick={(e) => e.stopPropagation()}>
+        <div className="taskCardTitleAndTaskCardDeleteButtonArea">
+          <TaskCardTitle />
+          <TaskCardDeleteButton
+            id={id}
+            taskCardsList={taskCardsList}
+            setTaskCardsList={setTaskCardsList}
+          />
+        </div>
+        <TaskAddInput
+          inputText={inputText}
+          setInputText={setInputText}
+          taskList={taskList}
+          setTaskList={setTaskList}
+        />
+        <Tasks taskList={taskList} setTaskList={setTaskList} />
+      </div>
     </div>
   );
 };

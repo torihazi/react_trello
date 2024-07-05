@@ -5,20 +5,24 @@ const TaskCardTitle = () => {
   const [inputCardTitle, setInputCardTitle] = useState("today");
 
   const handleClick = (e) => {
-    console.log("click");
+    e.stopPropagation();
+    console.log(e);
     setIsClick(true);
   };
 
   const handleChange = (e) => {
+    e.stopPropagation();
     setInputCardTitle(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setIsClick(false);
   };
 
   const handleBlur = (e) => {
+    e.stopPropagation();
     setIsClick(false);
   };
 

@@ -17,7 +17,6 @@ const TaskCards = () => {
   const handleDragEnd = (e) => {
     const { active, over } = e;
 
-    if (!active || !over) return;
     if (active.id === over.id) return;
 
     setTaskCardsList((prevList) => {
@@ -30,16 +29,21 @@ const TaskCards = () => {
 
   return (
     <div className="taskCardsArea">
-      {/* <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+      <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
         <SortableContext
           items={taskCardsList}
           strategy={horizontalListSortingStrategy}
-        > */}
-      {taskCardsList.map((taskCard) => (
-        <TaskCard key={taskCard.id} id={taskCard.id} />
-      ))}
-      {/* </SortableContext>
-      </DndContext> */}
+        >
+          {taskCardsList.map((taskCard) => (
+            <TaskCard
+              key={taskCard.id}
+              id={taskCard.id}
+              taskCardsList={taskCardsList}
+              setTaskCardsList={setTaskCardsList}
+            />
+          ))}
+        </SortableContext>
+      </DndContext>
       <AddTaskCardButton
         taskCardsList={taskCardsList}
         setTaskCardsList={setTaskCardsList}

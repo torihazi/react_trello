@@ -5,6 +5,7 @@ const TaskAddInput = (props) => {
   const { inputText, setInputText, taskList, setTaskList } = props;
   const handleSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (inputText === "") return;
     setTaskList([
       ...taskList,
@@ -17,6 +18,7 @@ const TaskAddInput = (props) => {
   };
 
   const handleChange = (e) => {
+    e.stopPropagation();
     setInputText(e.target.value);
   };
   return (
@@ -29,6 +31,7 @@ const TaskAddInput = (props) => {
           onChange={handleChange}
           maxLength="15"
           value={inputText}
+          onPointerDown={(e) => e.stopPropagation()}
         />
       </form>
     </div>
